@@ -10,7 +10,7 @@ function Proof() {
     const [comment, setComm] = useState("");
     const [schid, setSchid] = useState("");
     const [credid, setCredid] = useState("");
-    const [prof, setProf] = useState("iñe");
+    const [prof, setProf] = useState("");
     const [init, setInit] = useState(true);
 
 

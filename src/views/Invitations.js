@@ -39,6 +39,7 @@ function Invitations() {
         
         <QRCode style={{marginTop: "2%"}} value = {inv} />
         <div className="url">
+        <h6>Invitation URL:</h6>
            <p>{inv}</p> 
         </div>
       
