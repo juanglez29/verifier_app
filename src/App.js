@@ -7,7 +7,8 @@ import WalletManagment from './views/WalletManagment';
 import Invitations from './views/Invitations';
 import Proof from './views/Proof';
 import Proofr2 from './views/Proofr2';
-import Check from './views/Check';
+import Checkid from './views/Checkid';
+import Checkcred from './views/Checkcred';
 
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
                 <Route path="/Proof" element={<Proof />} />
                 <Route path="/Proofr2" element={<Proofr2/>} />
                 <Route path="/Invitations" element={<Invitations />} />
-                <Route path="/Check" element={<Check />} />
+                <Route path="/Checkid" element={<Checkid />} />
+                <Route path="/Checkcred" element={<Checkcred/>} />
               </Routes>
 
           </>

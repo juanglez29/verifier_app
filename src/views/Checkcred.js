@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, ProgressBar } from "react-bootstrap";
 import { FcApproval } from "react-icons/fc"
 import { FcHighPriority } from "react-icons/fc"
 import { Link } from "react-router-dom"
 import axios from "axios";
 
-function Check() {
+function Checkcred() {
 
     const location = useLocation();
     const { connid, presid, finish } = location.state;
@@ -27,7 +27,7 @@ function Check() {
         if ((key === "agent") && (value !== "covid")) {
             
             ver= "This passanger does not meet the requirements to fly"
-            return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+            return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                 <h5>{key} <FcHighPriority /></h5><p>{value} </p>
             </div>
         }
@@ -36,7 +36,7 @@ function Check() {
         if ((key === "n_dosis") && (value < 3)) {
            
            ver="This passanger does not meet the requirements to fly"
-            return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+            return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                 <h5>{key} <FcHighPriority /></h5><p>{value} </p>
             </div>
         }
@@ -46,13 +46,13 @@ function Check() {
             var date = new Date(value);
             if (date < currentdate) {
                 ver="This passanger does not meet the requirements to fly"
-                return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+                return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                     <h5>{key} <FcHighPriority /></h5><p>{value} </p>
                 </div>
             }
 
             else {
-                return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+                return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                     <h5>{key} <FcApproval /></h5><p>{value} </p>
                 </div>
             }
@@ -62,57 +62,40 @@ function Check() {
             var date2 = new Date(value);
             if ((currentdate.getTime() - date2.getTime()) / 86400000 >= 270) {
                 ver="This passanger does not meet the requirements to fly"
-                return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+                return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                     <h5>{key} <FcHighPriority /></h5><p>{value} </p>
                 </div>
             }
 
             else {
-                return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+                return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                     <h5>{key} <FcApproval /></h5><p>{value} </p>
                 </div>
             }
         }
 
         else {
-            return <div style={{ marginTop: "2%", marginBottom: "4%" }}>
+            return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
                 <h5>{key} <FcApproval/></h5><p>{value} </p>
             </div>
         }
 
-
-
-
     });
-    if (finish == true) {
+    
         return (
 
             <div>
-
+                <ProgressBar style={{ marginTop: "1.5%", marginBottom: "4%"}} animated now={100} label={"Covid credential verification: finished"}/> 
                 <div style={{ marginTop: "2%" }}>{list}</div>
-                <h6>{ver}</h6>
-                <Link to='/'>home</Link>
+                <p style={{marginBottom: "4%"}}>{ver}</p>
+                <button ><Link to='/' style={{color:'black', textDecoration: 'none'}}>Home</Link></button>
 
             </div>
         )
-    }
+    
 
-    else {
-
-        return (
-
-            <div>
-
-                <div style={{ marginTop: "2%" }}>{list}</div>
-         
-                <Link to='/Proofr2' state={{ r2: true, connid2: connid }}>cred request</Link>
-
-            </div>
-        )
-
-    }
 
 }
 
-export default Check;
+export default Checkcred;
 

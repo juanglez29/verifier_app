@@ -45,12 +45,12 @@ function Proofcompr2(props) {
         return (
                     <>
             <Form  style={{ marginTop: "2%", marginBottom: "4%"}} onSubmit={props.handlebool}>
-         
-                <DropdownButton onSelect={handleinputschid2} id="dropdown-basic-button" title="Select schema">
+              <h4>Select the schema and credential definition </h4>
+                <DropdownButton variant="secondary" style={{ marginTop: "2%", marginBottom: "3%"}} onSelect={handleinputschid2} title="Select schema">
                     {schids}
                 </DropdownButton>
 
-                <DropdownButton onSelect={handleinputcredid2} id="dropdown-basic-button" title="Select cred def">
+                <DropdownButton variant="secondary" style={{ marginTop: "2%", marginBottom: "3%"}} onSelect={handleinputcredid2} title="Select cred def">
                    {defids}
                 </DropdownButton>
 
@@ -66,10 +66,10 @@ function Proofcompr2(props) {
     if (props.step == 2) {
         return (
             <div>
-
+            <h4 style={{ marginBottom: "2%"}}>Select the attributes to request </h4>
                 <Form onSubmit={props.proofcred}>
                     {atrib}
-                    <button type="submit">Submit</button>
+                    <button style={{ marginTop: "2%" }}type="submit">Send credential request</button>
                 </Form>
             </div>
 
@@ -80,12 +80,10 @@ function Proofcompr2(props) {
 
 
     if (props.step == 3) {
+        
         return (
             <div>
-            <p>Your request has been sent successfully</p>
-            
-            <Link to='/Check' state={{presid: props.prof, finish: true}}>check credential attributes</Link>
-
+            <p>Your request has been sent successfully. Please <Link to='/Checkcred' state={{presid: props.prof}}>click here </Link> to check the result </p>
             </div>
 
         )

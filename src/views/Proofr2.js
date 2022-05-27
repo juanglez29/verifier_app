@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {useLocation} from "react-router-dom";
+import { ProgressBar } from "react-bootstrap";
 import Proofcompr2 from "../components/proofcompr2.js";
 
 const axios = require('axios');
@@ -8,7 +9,6 @@ function Proofr2() {
     const location= useLocation();
     const {connid2, r2} =location.state;
 
-    //const [r2state, setR2] = useState(r2);
     const [attr, setAttr] = useState([]);
     const [boddy, setBoddy] = useState([]);
     const [schid, setSchid] = useState(""); 
@@ -16,8 +16,9 @@ function Proofr2() {
     const [prof, setProf] = useState("");
     const [step, setStep] = useState(1);
     const [schemas, setSchemas]= useState([]);
-     const[defs, setDefs]=useState([]);
-     
+    const [defs, setDefs]=useState([]);
+    const [prog, setProg]=useState(60)
+    const [label, setLabel] = useState("Covid credential verification: Step 5");
     //const[did, setDid]=useState("");
 
 
@@ -60,7 +61,9 @@ function Proofr2() {
     }
 
     function handlebool() {
-        setStep(2);
+        setStep(2)
+        setProg(72)
+        setLabel("Covid credential verification: Step 6")
     }
   
 
@@ -74,7 +77,7 @@ function Proofr2() {
                 cred_def_id: credid,
                 attributes: boddy,
                 predicates: []
-            }).then(res=> setProf(res.data), setStep(3))
+            }).then(res=> setProf(res.data), setStep(3), setProg(84), setLabel("Covid credential verification: Step 7"))
             
         } catch (error) {
             console.error(error);
@@ -85,6 +88,7 @@ function Proofr2() {
 
     return (
         <div>
+            <ProgressBar style={{ marginTop: "1.5%", marginBottom: "4%"}} animated now={prog} label={label}/>
             <Proofcompr2
                 handleInputChange={handleInputChange}
                 handleinputcredid={handleinputcredid}

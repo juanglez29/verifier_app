@@ -10,17 +10,17 @@ function Connections(props) {
  
     const connectionslist = props.list.map(connections => {
         return <tr key={connections.connection_id}>
-            <td> {connections.connection_id}</td>
-            <td> {connections.state}</td>
-            <td> {connections.alias}</td>
-            <td> {connections.their_label}</td>
-            <td> {connections.their_role}</td>
+            <td  style={{textAlign: "center", width: "28%"}}> {connections.connection_id}</td>
+            <td style={{textAlign: "center"}}> {connections.state}</td>
+            <td style={{textAlign: "center"}}> {connections.alias}</td>
+            <td style={{textAlign: "center"}}> {connections.their_label}</td>
+            <td style={{textAlign: "center"}}> {connections.their_role}</td>
             <td style={{textAlign: "center"}}>
-
-                {connections.rfc23_state === "request-received" ? <Button variant="success" style={{ width: 150, height: 30, marginRight: "3%"}} onClick={(e) => props.acceptconnection(connections.connection_id, e)}>acceptconnection</Button> : null} 
-                {connections.connection_id===null ? null: <Button variant="danger" style={{ width: 150, height: 30 }} onClick={(e) => props.removeconnection(connections.connection_id, e)}>removeconnection</Button>}
-                {(connections.state ===  "active") || (connections.state === "response") ? <Link to='/Proof' state={{connid: connections.connection_id}}>cred request</Link> : null} 
-
+                
+                
+                {connections.connection_id===null ? null: <Button variant="danger" style={{ width: "40%", height: "3%", textAlign: "center", padding:0, marginRight: "3%"}} onClick={(e) => props.removeconnection(connections.connection_id, e)}>remove connection</Button>}
+                {(connections.state ===  "active") || (connections.state === "response") ? <Button variant="secondary" style={{ width: "40%", height: "3%", textAlign: "center", padding:0}}><Link to='/Proof' style={{color:'white', textDecoration: 'none', padding:0}} state={{connid: connections.connection_id}}>Issue credential</Link></Button> : null} 
+                {connections.rfc23_state === "request-received" ? <Button variant="success" style={{width: "40%", height: "3%", textAlign: "center", padding:0}} onClick={(e) => props.acceptconnection(connections.connection_id, e)}>accept connection</Button> : null} 
             </td>
 
         </tr>
@@ -45,12 +45,12 @@ function Connections(props) {
             <Table style={{ marginTop: "2%", marginBottom: "4%"}} striped bordered hover responsive>
                 <thead >
                     <tr >
-                        <th> Connection_id</th>
-                        <th> State</th>
-                        <th> Alias</th>
-                        <th> Their_label</th>
-                        <th> Their_role</th>
-                        <th> Actions </th>
+                        <th style={{textAlign: "center"}}> Connection_id</th>
+                        <th style={{textAlign: "center"}}> State</th>
+                        <th style={{textAlign: "center"}}> Alias</th>
+                        <th style={{textAlign: "center"}}> Their_label</th>
+                        <th style={{textAlign: "center"}}> Their_role</th>
+                        <th style={{textAlign: "center"}}> Actions </th>
                     </tr>
 
                 </thead>
