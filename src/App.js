@@ -6,6 +6,7 @@ import Home from './views/home';
 import WalletManagment from './views/WalletManagment';
 import Invitations from './views/Invitations';
 import Proof from './views/Proof';
+import Proofr2 from './views/Proofr2';
 import Check from './views/Check';
 
 
@@ -23,9 +24,7 @@ function App() {
             <ul className="nav flex-column">
               <NavLink to="/">Home</NavLink>
               <NavLink to="/ConnectionManagment">Connection Managment</NavLink>
-              <NavLink to="/WalletManagment">Wallet Managment</NavLink>            
-              <NavLink to="/Proof">Credential request</NavLink>
-              <NavLink to="/Check">Check proof</NavLink>
+              <NavLink to="/WalletManagment">Wallet Managment</NavLink>           
               <NavLink to="/Invitations">Get Invitations</NavLink>
 
             </ul>
@@ -43,6 +42,7 @@ function App() {
                 <Route path="/ConnectionManagment" element={<ConnectionManagment />} />
                 <Route path="/WalletManagment" element={<WalletManagment/>} />
                 <Route path="/Proof" element={<Proof />} />
+                <Route path="/Proofr2" element={<Proofr2/>} />
                 <Route path="/Invitations" element={<Invitations />} />
                 <Route path="/Check" element={<Check />} />
               </Routes>

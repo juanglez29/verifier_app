@@ -1,12 +1,13 @@
 
 import React from "react"
+import {Link} from "react-router-dom"
 import {Table} from "react-bootstrap"
 import {Button} from "react-bootstrap"
 
+
 function Connections(props) {
 
-    //const[details, setDetails]= useState(false);
-  
+ 
     const connectionslist = props.list.map(connections => {
         return <tr key={connections.connection_id}>
             <td> {connections.connection_id}</td>
@@ -15,11 +16,11 @@ function Connections(props) {
             <td> {connections.their_label}</td>
             <td> {connections.their_role}</td>
             <td style={{textAlign: "center"}}>
-            {/* {connections.state == ("response" || "active" || "completed") ? <button style={{ width: 150, height: 30 }} onClick={() => props.sendmessage(connections.connection_id)}>sendmessage</button> : null}  */}
-                
+
                 {connections.rfc23_state === "request-received" ? <Button variant="success" style={{ width: 150, height: 30, marginRight: "3%"}} onClick={(e) => props.acceptconnection(connections.connection_id, e)}>acceptconnection</Button> : null} 
                 {connections.connection_id===null ? null: <Button variant="danger" style={{ width: 150, height: 30 }} onClick={(e) => props.removeconnection(connections.connection_id, e)}>removeconnection</Button>}
-                
+                {(connections.state ===  "active") || (connections.state === "response") ? <Link to='/Proof' state={{connid: connections.connection_id}}>cred request</Link> : null} 
+
             </td>
 
         </tr>

@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import {useLocation} from "react-router-dom";
-import Proofcomp from "../components/proofcomp.js";
+import Proofcompr2 from "../components/proofcompr2.js";
 
 const axios = require('axios');
 
-function Proof() {
+function Proofr2() {
     const location= useLocation();
-    const {connid} =location.state;
+    const {connid2, r2} =location.state;
 
+    //const [r2state, setR2] = useState(r2);
     const [attr, setAttr] = useState([]);
     const [boddy, setBoddy] = useState([]);
-    const [schid, setSchid] = useState("");
+    const [schid, setSchid] = useState(""); 
     const [credid, setCredid] = useState("");
     const [prof, setProf] = useState("");
     const [step, setStep] = useState(1);
@@ -25,14 +26,14 @@ function Proof() {
             await axios.post('http://localhost:8031/myapi/wallet/credentials/schemas', { schema: schid })
                 .then(res => setAttr(res.data.schema.attrNames))
         }
-     /*    if(r2state==true){        
+        if(r2==true){        
         await axios.get('http://localhost:8031/myapi/wallet/credentials/schemas/created')
         .then(res => setSchemas(res.data.schemas))
          await axios.get('http://localhost:8031/myapi/wallet/credentials/definitions/created')
-        .then(res => setDefs(res.data.definitions),setStep(4), setR2(false)) 
+        .then(res => setDefs(res.data.definitions)) 
          //await axios.get('http://localhost:8031/myapi/wallet/dids/did')
          //.then(res => setDid(res.data.DID),  setStep(4), console.log(esoo))
-        } */
+        }
 
     }, [step])
 
@@ -69,7 +70,7 @@ function Proof() {
         
             await axios.post('http://localhost:8031/myapi/proof/send-request', {
                 comment: "This is a credential request",
-                connectionID: connid,
+                connectionID: connid2,
                 cred_def_id: credid,
                 attributes: boddy,
                 predicates: []
@@ -84,7 +85,7 @@ function Proof() {
 
     return (
         <div>
-            <Proofcomp
+            <Proofcompr2
                 handleInputChange={handleInputChange}
                 handleinputcredid={handleinputcredid}
                 handleinputschid={handleinputschid}
@@ -93,7 +94,6 @@ function Proof() {
                 attr={attr}
                 step={step}
                 prof={prof}
-                connid={connid}
                 schemas={schemas}
                 defs={defs}
             />
@@ -102,4 +102,4 @@ function Proof() {
     )
 }
 
-export default Proof;
+export default Proofr2;
