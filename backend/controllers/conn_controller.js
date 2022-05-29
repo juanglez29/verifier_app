@@ -77,15 +77,5 @@ exports.removeConnection = async (req, res, next) => {
 };
 
 
-exports.sendMessage = async (req, res, next) => {
-  try {
-    const message = req.body.msg;
-    const conn_id = req.body.conn_id;
-    await axios.post(`http://localhost:8030/api/connections/${conn_id}/send-message`, message);
-
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 

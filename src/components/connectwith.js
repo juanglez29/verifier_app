@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 
 function ConnectWith(props) {
 
@@ -16,7 +15,7 @@ function ConnectWith(props) {
 
       <form onSubmit={props.receiveandaccept}>
         <input placeholder="introduce url invitation" style={{ width: 330, height: 30 }} type="text" onChange={handleInputChange2} />
-        <Button type="submit" variant="primary" size="sm" style={{ marginLeft: "1%" }}>Send</Button>
+        <button type="submit"  style={{ marginLeft: "1%" }}>Send</button>
       </form>
     </>
   )

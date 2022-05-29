@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import { Button } from "react-bootstrap";
+import React, {useState} from "react";
 import '../App.css';
 import QRCode  from "react-qr-code";
 const axios = require('axios');
@@ -29,11 +28,11 @@ function Invitations() {
         }
     return(
         
-        <div style={{marginTop: "2%"}}>
-        <h4>Please, enter your name below: </h4>
+        <div>
+        <h4 style={{marginTop: "2%", marginBottom:"2%"}}>Please, enter your name below: </h4>
         <form onSubmit={createinv}>
-        <input style={{width: 110, height: 30}} type= "text" onChange={handleInputChange}/>
-        <Button variant= "primary" size ="sm" style={{marginLeft: "1%"}} type="submit">Send</Button>
+        <input style={{width: 180, height: 30}} type= "text" onChange={handleInputChange}/>
+        <button style={{marginLeft: "2%"}} type="submit">Send</button>
         </form>
 
         

@@ -34,21 +34,12 @@ function ConnectionManagment() {
                 .then(res => setList(res.data.connections_active))
         }
 
-        /* else {
-
-            await axios.get('http://localhost:8000/myapi/connections')
-                .then(res => setList(res.data.connections))
-        } */
-
     }, [update, filter])
 
 
     async function getallconn() {
         try {
-
-            await setFilter("all")
-           // await setUpdate(!update)
-
+           await setFilter("all")
         } catch (error) {
             console.error(error);
         }
@@ -58,7 +49,6 @@ function ConnectionManagment() {
     async function getpendingconn() {
         try {
             await setFilter("pendinng")
-           // await setUpdate(!update)
         } catch (error) {
             console.error(error);
         }
@@ -68,7 +58,6 @@ function ConnectionManagment() {
     async function getactiveconn() {
         try {
             await setFilter("active")
-           // await setUpdate(!update)
         } catch (error) {
             console.error(error);
         }
@@ -109,15 +98,6 @@ function ConnectionManagment() {
         }
     }
 
-    async function sendmessage(id) {
-        try {
-            await axios.post('http://localhost:8031/myapi/connections/send-message', { msg: "88" }, { conn_id: id })
-
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
 
 
     function handleInputChange(url) {
@@ -126,43 +106,36 @@ function ConnectionManagment() {
 
 
 
-    return (
+    if (list.length == 0) {
+        return (
+            <> <p style={{textAlign: "center", padding:"220px"}}>no connections yet </p></>
+        )
+    }
 
-        <div>
+    else {
 
-            <Connections removeconnection={removeconnection}
-                acceptconnection={acceptconnection}
-                getallconn={getallconn}
-                getpendingconn={getpendingconn}
-                getactiveconn={getactiveconn}
-                list={list}
-                filter={filter}
-                sendmessage={sendmessage}
-            />
-            
+        return (
 
-            <ConnectWith handleInputChange={handleInputChange}
-                receiveandaccept={receiveandaccept}
-            />
+            <div>
 
-            {/* <button style={{ width: 140, height: 30 }} onClick={sendmessage}>sendmessage</button> */}
+                <Connections removeconnection={removeconnection}
+                    acceptconnection={acceptconnection}
+                    getallconn={getallconn}
+                    getpendingconn={getpendingconn}
+                    getactiveconn={getactiveconn}
+                    list={list}
+                    filter={filter} />
 
-        </div>
+                <ConnectWith handleInputChange={handleInputChange}
+                    receiveandaccept={receiveandaccept} />
 
-    )
+            </div>
+
+        )
+    }
 
 }
 
 export default ConnectionManagment;
 
 
-
-/*  async function seeall() {
-     try {
-         await axios.get('http://localhost:8000/myapi/connections')
-         .then(res=> setList(res.data.connections))
-
-     } catch (error) {
-         console.error(error);
-     }
- } */

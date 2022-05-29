@@ -18,11 +18,23 @@ function Credentials(props) {
     });
 
 
-        return (
+    if(props.myschemas.length==0){
+        return( 
+            
+            <>
+            <p>The ECDC has not published any schema</p>
+            </>
+        )
+    }
+
+    
+        else{ 
+            
+            return (
 
             <>
 
-                <Table style={{marginTop: "1%", maxWidth: "55%"}} striped bordered hover responsive>
+                <Table variant="dark" style={{marginTop: "1%", maxWidth: "55%"}} striped bordered hover responsive>
                     <thead >
                         <tr >
                             <th style={{textAlign: "center"}}> Ver</th>
@@ -31,16 +43,16 @@ function Credentials(props) {
                             <th style={{textAlign: "center"}}> version</th>
                             <th style={{textAlign: "center"}}> attributes</th>
                         </tr>
-
                     </thead>
                     <tbody style={{ overflowY: "scroll" }}>
                         {credlist}
                     </tbody>
 
-                    </Table>
+                </Table>
 
             </>
         )
+            }
 
 
 }

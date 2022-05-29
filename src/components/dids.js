@@ -17,11 +17,11 @@ function Dids(props) {
 
             <>
 
-                <Table style={{ marginTop: "1%", maxWidth: "55%" }} striped bordered hover responsive>
+                <Table variant="dark" style={{ marginTop: "1%", maxWidth: "55%" }} striped bordered hover responsive>
                     <thead >
                         <tr >
                             <th style={{textAlign: "center"}}> Did</th>
-                            <th style={{textAlign: "center"}}> Posture</th>
+                            <th style={{textAlign: "center"}}> Status</th>
                         </tr>
 
                     </thead>
