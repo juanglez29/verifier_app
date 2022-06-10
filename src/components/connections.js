@@ -45,11 +45,11 @@ function Connections(props) {
             <Table variant="dark" style={{ marginTop: "2%", marginBottom: "4%"}} striped bordered hover responsive>
                 <thead >
                     <tr >
-                        <th style={{textAlign: "center"}}> Connection_id</th>
+                        <th style={{textAlign: "center"}}> Connection id</th>
                         <th style={{textAlign: "center"}}> State</th>
                         <th style={{textAlign: "center"}}> Alias</th>
-                        <th style={{textAlign: "center"}}> Their_label</th>
-                        <th style={{textAlign: "center"}}> Their_role</th>
+                        <th style={{textAlign: "center"}}> Their label</th>
+                        <th style={{textAlign: "center"}}> Their role</th>
                         <th style={{textAlign: "center"}}> Actions </th>
                     </tr>
 

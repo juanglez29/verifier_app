@@ -19,8 +19,28 @@ function Checkid() {
 
     const list = Object.entries(listatt).map( ([key, value]) => {
 
+        var a= "";
+        if(key=="photo_url"){
+            a= "Photo"
+        }
+        if(key=="full_name"){
+            a= "Full name"
+        }
+        if(key=="birthday"){
+            a= "Age"
+        }
+        if(key=="birthday_epoch"){
+            a= "Age (epoch)"
+        }
+        if(key=="dni_number"){
+            a= "Dni"
+        }
+        if(key=="address"){
+            a= "Home adress"
+        }
+      
                 return <div style={{ marginTop: "2%", marginBottom: "3%"}}>
-                 <h5><FcInfo/> {key}</h5><p style={{ marginLeft: "2%"}}>{value} </p>
+                 <h5><FcInfo/> {a}</h5><p style={{ marginLeft: "2%"}}>{value} </p>
                 </div>
             }
       

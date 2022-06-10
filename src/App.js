@@ -1,9 +1,8 @@
-
 import './App.css';
 import { NavLink, Routes, Route  } from 'react-router-dom';
-import ConnectionManagment from './views/ConnectionManagment';
+import ConnectionManagement from './views/ConnectionManagement';
 import Home from './views/home';
-import WalletManagment from './views/WalletManagment';
+import WalletManagement from './views/WalletManagement';
 import Invitations from './views/Invitations';
 import Proof from './views/Proof';
 import Proofr2 from './views/Proofr2';
@@ -17,7 +16,7 @@ function App() {
       <header className="navbar sticky-top bg-colorhead flex-md-nowrap p-0 shadow ">
       <div style={{width: "100%"}}>
       <img className="aena" src="aena.png"/>
-      <h6 className="aenatitle">Spanish airport managment</h6>
+      <h6 className="aenatitle">Spanish airport management</h6>
       </div>
     </header>
 
@@ -26,8 +25,8 @@ function App() {
           
         <ul style={{ marginTop: "10%" }} className="nav flex-column">
               <NavLink className="link" to="/">Home</NavLink>
-              <NavLink className="link" to="/ConnectionManagment">Connection Managment</NavLink>
-              <NavLink className="link" to="/WalletManagment">Wallet Managment</NavLink>
+              <NavLink className="link" to="/ConnectionManagement">Connection Management</NavLink>
+              <NavLink className="link" to="/WalletManagement">Wallet Management</NavLink>
               <NavLink className="link" to="/Invitations">Get Invitations</NavLink>
             </ul>
             
@@ -37,8 +36,8 @@ function App() {
             <>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/ConnectionManagment" element={<ConnectionManagment />} />
-                <Route path="/WalletManagment" element={<WalletManagment />} />
+                <Route path="/ConnectionManagement" element={<ConnectionManagement />} />
+                <Route path="/WalletManagement" element={<WalletManagement />} />
                 <Route path="/Proof" element={<Proof />} />
                 <Route path="/Checkid" element={<Checkid />} />
                 <Route path="/Checkcred" element={<Checkcred />} />

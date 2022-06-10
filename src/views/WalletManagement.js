@@ -5,7 +5,7 @@ import Credentials from "../components/credentials";
 const axios = require('axios');
 
 
-function WalletManagment() {
+function WalletManagement() {
 
     const [didlist, setDidlist] = useState([]);
     const [myschemas, setMychemas] = useState([]);
@@ -29,13 +29,13 @@ function WalletManagment() {
 
         <div>
 
-            <div style={{ margin: "3%" }}>
-                <h2 style={{ marginBottom: "2%" }}>DIDs</h2>  
+            <div style={{ marginTop: "2%" }}>
+                <h2 style={{ marginBottom: "1%" }}>DIDs</h2>  
                 <Dids didlist={didlist}/>
             </div>
 
-            <div style={{ margin: "3%" }}>
-                <h2 style={{ marginBottom: "2%" }}>schemas</h2>  
+            <div style={{ marginTop:"3%" }}>
+                <h2 style={{ marginBottom: "1%" }}>schemas</h2>  
                 <Credentials myschemas={myschemas} />
 
             </div>
@@ -45,4 +45,4 @@ function WalletManagment() {
     )
 }
 
-export default WalletManagment;
+export default WalletManagement;

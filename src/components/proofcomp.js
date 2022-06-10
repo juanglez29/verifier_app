@@ -21,9 +21,30 @@ function Proofcomp(props) {
 
     const atrib = props.attr.map((att) => {
 
+        var a= "";
+        if(att=="photo_url"){
+            a= "Photo"
+        }
+        if(att=="full_name"){
+            a= "Full name"
+        }
+        if(att=="birthday"){
+            a= "Age"
+        }
+        if(att=="birthday_epoch"){
+            a= "Age (epoch)"
+        }
+        if(att=="dni_number"){
+            a= "Dni"
+        }
+        if(att=="address"){
+            a= "Home adress"
+        }
+      
         return <div>
-            <Form.Check type="checkbox" label={`${att}`} onChange={(e) => handleInputChange2(att, e)} />
+            <Form.Check type="checkbox" label={a} onChange={(e) => handleInputChange2(att, e)} />
         </div>
+        
 
     })
 

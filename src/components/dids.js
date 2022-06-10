@@ -7,7 +7,7 @@ function Dids(props) {
     const didslist = props.didlist.map(dids => {
         return <tr key={dids.did}>
             <td style={{textAlign: "center"}}> {dids.did}</td>
-            <td style={{textAlign: "center"}}> {dids.posture}</td>
+            <td style={{textAlign: "center"}}> {dids.posture=="wallet_only" ? "only available in wallet" : "posted on Blockchain"}</td>
         </tr>
 
     });
@@ -17,7 +17,7 @@ function Dids(props) {
 
             <>
 
-                <Table variant="dark" style={{ marginTop: "1%", maxWidth: "55%" }} striped bordered hover responsive>
+                <Table variant="dark" style={{ marginTop: "1%", maxWidth: "45%", overflow: "auto" }} striped bordered hover responsive>
                     <thead >
                         <tr >
                             <th style={{textAlign: "center"}}> Did</th>
@@ -25,7 +25,7 @@ function Dids(props) {
                         </tr>
 
                     </thead>
-                    <tbody style={{ overflowY: "scroll" }}>{didslist}</tbody>
+                    <tbody style={{ height: "10px", overflowY: "scroll" }}>{didslist}</tbody>
 
                 </Table>
 

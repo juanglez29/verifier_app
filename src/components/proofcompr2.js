@@ -34,8 +34,28 @@ function Proofcompr2(props) {
 
     const atrib = props.attr.map((att) => {
 
+        var a= "";
+        if(att=="agent"){
+            a= "Agent"
+        }
+        if(att=="expiration"){
+            a= "Expiration date"
+        }
+        if(att=="name_last_dosis"){
+            a= "Vaccine name"
+        }
+        if(att=="n_dosis"){
+            a= "Number of doses"
+        }
+        if(att=="date_last_dosis"){
+            a= "Date of last dose"
+        }
+        if(att=="country_last_dosis"){
+            a= "Country of last dose"
+        }
+
         return <div>
-            <Form.Check type="checkbox" label={`${att}`} onChange={(e) => handleInputChange2(att, e)} />
+            <Form.Check type="checkbox" label={`${a}`} onChange={(e) => handleInputChange2(att, e)} />
         </div>
 
     })
@@ -46,11 +66,11 @@ function Proofcompr2(props) {
                     <>
             <Form  style={{ marginTop: "2%", marginBottom: "4%"}} onSubmit={props.handlebool}>
               <h4>Select the schema and credential definition </h4>
-                <DropdownButton variant="secondary" style={{ marginTop: "2%", marginBottom: "3%"}} onSelect={handleinputschid2} title="Select schema">
+                <DropdownButton variant="secondary" style={{ marginTop: "2%", marginBottom: "1%"}} onSelect={handleinputschid2} title="schema">
                     {schids}
                 </DropdownButton>
 
-                <DropdownButton variant="secondary" style={{ marginTop: "2%", marginBottom: "3%"}} onSelect={handleinputcredid2} title="Select cred def">
+                <DropdownButton variant="secondary" style={{ marginTop: "1%", marginBottom: "4%"}} onSelect={handleinputcredid2} title="credential definition">
                    {defids}
                 </DropdownButton>
 
