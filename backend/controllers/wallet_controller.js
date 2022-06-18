@@ -10,18 +10,6 @@ exports.getdids = async (req, res, next) => {
     console.error(error);
   }
 };
-
-exports.getdid= async (req, res, next) => {
-  try {
-    const resp = await axios.get("http://localhost:8020/api/wallet/dids/public");
-    res.send(resp.data);
-
-  } catch (error) {
-    console.error(error);
-  }
-  };
-
-
   
   exports.getschemas = async (req, res, next) => {
     try {
@@ -55,15 +43,5 @@ exports.getdid= async (req, res, next) => {
     }
   };
 
-  exports.getdefinition = async (req, res, next) => {
-    try {
-      const credDefID = req.body;
-      const resp = await axios.get(`http://localhost:8030/api/wallet/credentials/definitions/${credDefID}`);
-      res.send(resp.data);
-  
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   

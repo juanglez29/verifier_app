@@ -4,8 +4,8 @@ import ConnectionManagement from './views/ConnectionManagement';
 import Home from './views/home';
 import WalletManagement from './views/WalletManagement';
 import Invitations from './views/Invitations';
-import Proof from './views/Proof';
-import Proofr2 from './views/Proofr2';
+import Proofid from './views/Proofid';
+import Proofcred from './views/Proofcred';
 import Checkid from './views/Checkid';
 import Checkcred from './views/Checkcred';
 
@@ -38,10 +38,10 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/ConnectionManagement" element={<ConnectionManagement />} />
                 <Route path="/WalletManagement" element={<WalletManagement />} />
-                <Route path="/Proof" element={<Proof />} />
+                <Route path="/Proof" element={<Proofid />} />
                 <Route path="/Checkid" element={<Checkid />} />
                 <Route path="/Checkcred" element={<Checkcred />} />
-                <Route path="/Proofr2" element={<Proofr2 />} />
+                <Route path="/Proofcred" element={<Proofcred />} />
                 <Route path="/Invitations" element={<Invitations />} />
               </Routes>
             </>

@@ -19,7 +19,7 @@ function Connections(props) {
                 
                 
                 {connections.connection_id===null ? null: <Button variant="danger" style={{ width: "40%", height: "3%", textAlign: "center", padding:0, marginRight: "3%"}} onClick={(e) => props.removeconnection(connections.connection_id, e)}>remove connection</Button>}
-                {(connections.state ===  "active") || (connections.state === "response") ? <Button variant="primary" style={{ width: "40%", height: "3%", textAlign: "center", padding:0}}><Link to='/Proof' style={{color:'white', textDecoration: 'none', padding:0}} state={{connid: connections.connection_id}}>Issue credential</Link></Button> : null} 
+                {(connections.state ===  "active") || (connections.state === "response") ? <Button variant="primary" style={{ width: "40%", height: "3%", textAlign: "center", padding:0}}><Link to='/Proof' style={{color:'white', textDecoration: 'none', padding:0}} state={{connid: connections.connection_id}}>Verify credential</Link></Button> : null} 
                 {connections.rfc23_state === "request-received" ? <Button variant="success" style={{width: "40%", height: "3%", textAlign: "center", padding:0}} onClick={(e) => props.acceptconnection(connections.connection_id, e)}>accept connection</Button> : null} 
             </td>
 

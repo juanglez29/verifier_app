@@ -14,13 +14,10 @@ router.post('/connections/accept-connection', conn_controller.acceptConnection);
 router.post('/connections/remove-connection', conn_controller.removeConnection);
 
 router.get('/wallet/dids', wallet_controller.getdids);
-router.post('/wallet/dids/did', wallet_controller.getdid);
-
-
 router.get('/wallet/credentials/schemas/created', wallet_controller.getschemas);
 router.post('/wallet/credentials/schemas', wallet_controller.getschema);
 router.get('/wallet/credentials/definitions/created', wallet_controller.getdefinitions);
-router.post('/wallet/credentials/definitions', wallet_controller.getdefinition);
+
 
 
 router.post('/proof/send-request', proof_controller.proofcred);

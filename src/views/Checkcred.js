@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link} from "react-router-dom";
-import { Button, Form, ProgressBar } from "react-bootstrap";
+import { ProgressBar } from "react-bootstrap";
 import { FcApproval, FcHighPriority, FcInfo } from "react-icons/fc"
 import axios from "axios";
 
 function Checkcred() {
 
     const location = useLocation();
-    const { connid, presid, finish } = location.state;
+    const {presid} = location.state;
     const [listatt, setListatt] = useState({});
 
     var allowed = null;
@@ -130,68 +130,6 @@ function Checkcred() {
 
 
 
-
-
 }
 
 export default Checkcred;
-
-/* 
-const list = Object.entries(listatt).map(([key, value]) => {
-
-    var currentdate = new Date();
-
-    if ((key === "agent") && (value !== "covid")) {
-        
-        ver= "This passanger does not meet the requirements to fly"
-        return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
-            <h5>{key} <FcHighPriority /></h5><p>{value} </p>
-        </div>
-    }
-
-
-    if ((key === "n_dosis") && (value < 3)) {
-       
-       ver="This passanger does not meet the requirements to fly"
-        return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
-            <h5>{key} <FcHighPriority /></h5><p>{value} </p>
-        </div>
-    }
-
-
-    if (key === "expiration") {
-        var date = new Date(value);
-        if (date < currentdate) {
-            ver="This passanger does not meet the requirements to fly"
-            return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
-                <h5>{key} <FcHighPriority /></h5><p>{value} </p>
-            </div>
-        }
-
-            </div>
-        }
-    }
-
-    if (key === "date_last_dosis") {
-        var date2 = new Date(value);
-        if ((currentdate.getTime() - date2.getTime()) / 86400000 >= 270) {
-            ver="This passanger does not meet the requirements to fly"
-            return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
-                <h5>{key} <FcHighPriority /></h5><p>{value} </p>
-            </div>
-        }
-
-        else {
-            return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
-                <h5>{key} <FcApproval /></h5><p>{value} </p>
-            </div>
-        }
-    }
-
-    else {
-        return <div style={{ marginTop: "2%", marginBottom: "3%" }}>
-            <h5>{key} <FcApproval/></h5><p>{value} </p>
-        </div>
-    }
-
-}); */

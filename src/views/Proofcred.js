@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import {useLocation} from "react-router-dom";
 import { ProgressBar } from "react-bootstrap";
-import Proofcompr2 from "../components/proofcompr2.js";
+import Proofcredcomp from "../components/proofcredcomp.js";
 
 const axios = require('axios');
 
-function Proofr2() {
+function Proofcred() {
     const location= useLocation();
     const {connid2, r2} =location.state;
 
     const [attr, setAttr] = useState([]);
     const [boddy, setBoddy] = useState([]);
     const [schid, setSchid] = useState(""); 
-    const [credid, setCredid] = useState("");
+    const [defid, setDefid] = useState("");
     const [prof, setProf] = useState("");
     const [step, setStep] = useState(1);
     const [schemas, setSchemas]= useState([]);
     const [defs, setDefs]=useState([]);
-    const [prog, setProg]=useState(60)
+    const [prog, setProg]=useState(60);
+    const [pred, setPred] = useState([]);
     const [label, setLabel] = useState("Covid credential verification: Step 5");
-    //const[did, setDid]=useState("");
+   
 
 
     useEffect(async () => {
@@ -32,8 +33,7 @@ function Proofr2() {
         .then(res => setSchemas(res.data.schemas))
          await axios.get('http://localhost:8031/myapi/wallet/credentials/definitions/created')
         .then(res => setDefs(res.data.definitions)) 
-         //await axios.get('http://localhost:8031/myapi/wallet/dids/did')
-         //.then(res => setDid(res.data.DID),  setStep(4), console.log(esoo))
+
         }
 
     }, [step])
@@ -52,12 +52,24 @@ function Proofr2() {
         setBoddy(b)
     }
 
+    function handleinputzkp(p) {
+
+        let b = pred
+        if (!(b.includes(p))) {
+            b.push(p)
+        }
+        else {
+            b.splice(b.indexOf(p), 1)
+        }
+        setPred(pred) 
+    }
 
     function handleinputschid(schid) {
         setSchid(schid)
     }
-    function handleinputcredid(credid) {
-        setCredid(credid)
+
+    function handleinputdefid(defid) {
+        setDefid(defid)
     }
 
     function handlebool() {
@@ -74,9 +86,9 @@ function Proofr2() {
             await axios.post('http://localhost:8031/myapi/proof/send-request', {
                 comment: "This is a credential request",
                 connectionID: connid2,
-                cred_def_id: credid,
+                cred_def_id: defid,
                 attributes: boddy,
-                predicates: []
+                predicates: pred
             }).then(res=> setProf(res.data), setStep(3), setProg(84), setLabel("Covid credential verification: Step 7"))
             
         } catch (error) {
@@ -89,13 +101,15 @@ function Proofr2() {
     return (
         <div>
             <ProgressBar style={{ marginTop: "1.5%", marginBottom: "4%"}} animated now={prog} label={label}/>
-            <Proofcompr2
+            <Proofcredcomp
                 handleInputChange={handleInputChange}
-                handleinputcredid={handleinputcredid}
+                handleinputzkp= {handleinputzkp}
+                handleinputdefid={handleinputdefid}
                 handleinputschid={handleinputschid}
                 proofcred={proofcred}
                 handlebool={handlebool}
                 attr={attr}
+                pred={pred}
                 step={step}
                 prof={prof}
                 schemas={schemas}
@@ -106,4 +120,4 @@ function Proofr2() {
     )
 }
 
-export default Proofr2;
+export default Proofcred;

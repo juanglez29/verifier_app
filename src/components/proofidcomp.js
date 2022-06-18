@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 import {Form, DropdownButton, Dropdown } from "react-bootstrap"
 
-function Proofcomp(props) {
+function Proofidcomp(props) {
 
     
     function handleInputChange2(att, event) {
@@ -10,8 +10,8 @@ function Proofcomp(props) {
        
     }
 
-    function handleinputcredid2(event) {
-        props.handleinputcredid(event)
+    function handleinputdefid2(event) {
+        props.handleinputdefid(event)
     }
 
     function handleinputschid2(event) {
@@ -60,7 +60,7 @@ function Proofcomp(props) {
                         <Dropdown.Item eventKey="5zSjAUVLutZmATa97c5cNK:2:covID_PoC_Identity:1.07">5zSjAUVLutZmATa97c5cNK:2:covID_PoC_Identity:1.07 (299953)</Dropdown.Item>
                     </DropdownButton>
 
-                    <DropdownButton variant="secondary" style={{ marginTop: "1%", marginBottom: "4%"}} onSelect={handleinputcredid2} id="dropdown-basic-button" title="credential definition">   
+                    <DropdownButton variant="secondary" style={{ marginTop: "1%", marginBottom: "4%"}} onSelect={handleinputdefid2} id="dropdown-basic-button" title="credential definition">   
                         <Dropdown.Item eventKey="5zSjAUVLutZmATa97c5cNK:3:CL:297813:covID_PoC_Identity">5zSjAUVLutZmATa97c5cNK:3:CL:297813:covID_PoC_Identity</Dropdown.Item>
                         <Dropdown.Item eventKey="5zSjAUVLutZmATa97c5cNK:3:CL:299953:covID_PoC_Identity">55zSjAUVLutZmATa97c5cNK:3:CL:299953:covID_PoC_Identity</Dropdown.Item>   
                     </DropdownButton>
@@ -102,4 +102,4 @@ function Proofcomp(props) {
  
 
 }
-export default Proofcomp;
+export default Proofidcomp;
