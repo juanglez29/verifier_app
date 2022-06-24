@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from "react";
-//import ReactTable from "react-table";
 import { useLocalStorage } from "../filter_config";
 import Connections from "../components/connections";
 import ConnectWith from "../components/connectwith";
@@ -13,13 +12,11 @@ function ConnectionManagement() {
     const [url, setUrl] = useState("");
     const [update, setUpdate] = useState(false);
     const [filter, setFilter] = useLocalStorage("filter", "all");
-    //const [filter, setFilter] = useState("all");
-
 
 
     useEffect(async () => {
 
-        if(filter==="all"){
+        if(filter === "all"){
         await axios.get('http://localhost:8031/myapi/connections')
          .then(res => setList(res.data.connections))
         }

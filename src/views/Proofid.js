@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import {useLocation} from "react-router-dom";
 import Proofidcomp from "../components/proofidcomp.js";
 import { ProgressBar } from "react-bootstrap";
-
+import io from 'socket.io-client';
 const axios = require('axios');
 
 function Proof() {
+
+    const [msg, setmsg] = useState("");
+    const socket= io("http://localhost:8031"); 
     const location= useLocation();
     const {connid} =location.state;
-
     const [attr, setAttr] = useState([]);
     const [boddy, setBoddy] = useState([]);
     const [schid, setSchid] = useState("");
@@ -27,6 +29,14 @@ function Proof() {
 
     }, [step])
 
+    useEffect(() => {
+
+        socket.on('msg', msg => { 
+        setmsg(msg)
+        console.log(msg)
+   
+      })}, [msg])
+       
 
     function handleInputChange(att) {
 
@@ -88,6 +98,7 @@ function Proof() {
                 step={step}
                 prof={prof}
                 connid={connid}
+                msg={msg}
             
             />
         

@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import '../App.css';
 import QRCode  from "react-qr-code";
 const axios = require('axios');
-//const download = require('react-file-download')
 
 
 function Invitations() {

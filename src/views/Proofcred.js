@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import {useLocation} from "react-router-dom";
 import { ProgressBar } from "react-bootstrap";
 import Proofcredcomp from "../components/proofcredcomp.js";
-
+import io from 'socket.io-client';
 const axios = require('axios');
 
 function Proofcred() {
+
+    const [msg, setmsg] = useState("");
+    const socket= io("http://localhost:8031"); 
     const location= useLocation();
     const {connid2, r2} =location.state;
-
     const [attr, setAttr] = useState([]);
     const [boddy, setBoddy] = useState([]);
     const [schid, setSchid] = useState(""); 
@@ -21,8 +23,7 @@ function Proofcred() {
     const [pred, setPred] = useState([]);
     const [label, setLabel] = useState("Covid credential verification: Step 5");
    
-
-
+    
     useEffect(async () => {
         if (step == 2) {
             await axios.post('http://localhost:8031/myapi/wallet/credentials/schemas', { schema: schid })
@@ -37,6 +38,14 @@ function Proofcred() {
         }
 
     }, [step])
+
+    useEffect(() => {
+
+        socket.on('msg', msg => { 
+        setmsg(msg)
+   
+      })}, [msg])
+       
 
 
     function handleInputChange(att) {
@@ -114,6 +123,7 @@ function Proofcred() {
                 prof={prof}
                 schemas={schemas}
                 defs={defs}
+                msg={msg}
             />
         
         </div>
